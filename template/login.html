@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% load static %} 
+ {% block content %} 
+ <div class="container">
+     {{msg}}
+     <div class="row">
+         <h3>Sign In Here !..</h3>
+         <div class="col-lg-12">
+             <form action="/login" method="post">
+                 {% csrf_token %}
+              
+                 <p>
+                    <input type="email" class="form-control"  placeholder="Email" required name="email">
+                </p>
+                <p>
+                    <input type="password" class="form-control"   placeholder="password" required name="password">
+                </p>
+               
+                <p>
+                    <input type="submit" class="btn  btn-success" value="Login">
+                </p>
+             </form>
+         </div>
+ 
+     </div>
+ </div>
+
+ {% endblock %}

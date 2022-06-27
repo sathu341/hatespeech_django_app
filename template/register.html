@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% load static %} 
+ {% block content %} 
+ <div class="container">
+     {{msg}}
+     <div class="row">
+         <div class="col-lg-12">
+             <h3>Sig Up Here!..</h3>
+             <form action="/register" method="post" onsubmit="return ct()">
+                 {% csrf_token %}
+                 <p>
+                     <input type="text" class="form-control" placeholder="Name" required name="name">
+                 </p>
+                 <p>
+                    <input type="email" class="form-control"   placeholder="Email" required name="email">
+                </p>
+                <p>
+                    <input type="password" class="form-control"  placeholder="password" required name="password">
+                </p>
+                <p>
+                    <input type="tel" class="form-control"   placeholder="Mobile No" required name="mobile" id="mb">
+                </p>
+                <p>
+                    <input type="submit"   class="btn btn-success" value="Register">
+                </p>
+             </form>
+         </div>
+         <script>
+              function ct(){
+                  var x;
+                  x=document.getElementById("mb").value;
+                  if (x.length!=10){
+                      alert("check your mobile")
+                      return false;
+                  }
+              }
+         </script>
+     </div>
+ </div>
+
+ {% endblock %}
